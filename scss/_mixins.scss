@@ -1,0 +1,6 @@
+@mixin box_custom($background, $border, $pad, $marginbottom) {
+	background: $background;
+	border: $border;
+	padding: $pad;
+	margin-bottom: $marginbottom;
+}

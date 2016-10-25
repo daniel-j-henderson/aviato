@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'mission';
+  src: url("../fonts/Mission-Script.otf");
+}
+
+@font-face {
+  font-family: 'titillium-reg';
+  src: url("../fonts/Titillium-Regular.otf");
+}
+
+html {
+  height:100%;
+}
+
+body {
+  background: linear-gradient($avyellow, $dblue) center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0;
+  img {
+    width:540px; /* you can use % */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 0 30px;
+  }
+  p {
+    font-family: 'titillium-reg';
+    max-width: 760px;
+    min-width: 540px;
+    font-size: 20px;
+    text-align: center;
+    color: $avyellow;
+    display: block;
+    margin: 50px auto;
+  }
+}
+
+
+
+nav {
+  text-align: center;
+  margin-top: 10%;
+  a {
+    font-family: 'mission';
+    font-size: 48px;
+    color: white;
+    @include box_custom($transparent, solid 8px $dblue, 10px 30px, 10px);
+    margin: 0 10px;
+  }
+}
