@@ -12,6 +12,9 @@
 
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -19,14 +22,142 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <img src="img/aviato-logo.png">
+        <img id="logo" src="img/aviato-logo.png">
         <nav>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
-          <a href="#">Link</a>
+          <a id="btnA" href="#">About</a>
+          <a id="btnB" href="#">Work</a>
+          <a id="btnC" href="#">Who We Are</a>
+          <a id="btnD" href="#">Get In Touch</a>
         </nav>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, labore. Facere illo aspernatur optio cum, esse eligendi debitis ducimus cumque, tenetur porro animi quasi est, accusamus vitae rerum nobis mollitia!</p>
+        <p id="quote">"A name defines a company. It has to be something primal, something that you can scream out during intercourse. Like Aviato.""</p>
+
+   <script type="text/javascript">
+   var text = new Array();
+   text[0] = "\"A name defines a company. It has to be something primal, something that you can scream out during intercourse. Like Aviato.\"";
+   text[1] = "\"Richard, take Aviato. That's not a name I found, it's a name that found me on a vision quest. Something that you should do.\"";
+   text[2] = "\"Do you know why your shitty house is worth 20 times what you paid for it in the 1970s? Because of people like us moving in and starting illegal businesses in our garages. All the best companies — Apple, Google, Hewlett-Packard, even Aviato — all of them were started in unzoned garages.\""
+   var counter = 0;
+   var elem = document.getElementById("quote");
+   setInterval(change, 8000);
+   function change() {
+     counter = (counter+1)%text.length;
+     $("#quote").fadeOut(800);
+     setTimeout(function(){elem.innerHTML = text[counter];},800);
+    $("#quote").fadeIn(800);
+
+   }
+   </script>
+
+
+<!-- The Modal -->
+<div id="about_modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">x</span>
+    <p>Aviato's core mission is the exploration of self. Aviato is a company that specializes in "auto-branding and promotion," an exciting new industry straight from the heart of Silicon Valley. Check out our <i>work</i> gallery to see some examples - prepare to be amazed.</p>
+  </div>
+
+</div>
+
+<div id="work_modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">x</span>
+    <div class="gallery" align="center">
+
+    	<div class="thumbnails">
+    		<img onmouseover="preview.src=img1.src" name="img1" src="img/img1.png" alt=""/>
+    		<img onmouseover="preview.src=img2.src" name="img2" src="img/img2.jpg" alt=""/>
+    		<img onmouseover="preview.src=img3.src" name="img3" src="img/img3.png" alt=""/>
+    		<img onmouseover="preview.src=img4.src" name="img4" src="img/img4.jpg" alt=""/>
+    	</div><br/>
+
+    	<div class="preview" align="center">
+    		<img name="preview" src="img/img1.png" alt=""/>
+    	</div>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="wwa_modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content wwa">
+    <span class="close">x</span>
+    <p>Helmed by the visionary Erlich Bachman, of such successes as <i>Nip Alert</i> and <i>Bachmanity Capital,</i> Aviato is a clearly mistifying, confusingly simple meta-brand. Here at Aviato, we house the best innovators, synergizers, imaginators, creationeers, designulators and fulfillment and implementation specialists in the Valley. Whatever our product is, you can rest assured - you need it.</p>
+  </div>
+
+</div>
+
+<div id="git_modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">x</span>
+    <p>As an environmentally conscious company, we strive to limit our environmental footprint as much as possible. As a result, we use only naturally ocurring resources for communication, and our campus is inaccessible by road to avoid motor pollution. Please direct your carrier pidgeons to 5454 Innovationeering Dr, Palo Alto CA.</p>
+  </div>
+
+</div>
+
+<script>
+  // Get the modal
+  var modalA = document.getElementById('about_modal');
+  var modalB = document.getElementById('work_modal');
+  var modalC = document.getElementById('wwa_modal');
+  var modalD = document.getElementById('git_modal');
+
+  // Get the button that opens the modal
+  var btnA = document.getElementById("btnA");
+  var btnB = document.getElementById("btnB");
+  var btnC = document.getElementById("btnC");
+  var btnD = document.getElementById("btnD");
+
+  // Get the <span> element that closes the modal
+  var spanA = document.getElementsByClassName("close")[0];
+  var spanB = document.getElementsByClassName("close")[1];
+  var spanC = document.getElementsByClassName("close")[2];
+  var spanD = document.getElementsByClassName("close")[3];
+
+  // When the user clicks on the button, open the modal
+  btnA.onclick = function() {
+      modalA.style.display = "block";
+  }
+  btnB.onclick = function() {
+      modalB.style.display = "block";
+  }
+  btnC.onclick = function() {
+      modalC.style.display = "block";
+  }
+  btnD.onclick = function() {
+      modalD.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  spanA.onclick = function() {
+      modalA.style.display = "none";
+  }
+  spanB.onclick = function() {
+      modalB.style.display = "none";
+  }
+  spanC.onclick = function() {
+      modalC.style.display = "none";
+  }
+  spanD.onclick = function() {
+      modalD.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modalA) modalA.style.display = "none";
+      if (event.target == modalB) modalB.style.display = "none";
+      if (event.target == modalC) modalC.style.display = "none";
+      if (event.target == modalD) modalD.style.display = "none";
+  }
+  </script>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
